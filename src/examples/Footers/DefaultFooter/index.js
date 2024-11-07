@@ -1,18 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // react-router-dom components
 import { Link } from "react-router-dom";
 
@@ -28,7 +13,7 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 
 function DefaultFooter({ content }) {
-  const { brand, socials, menus, copyright } = content;
+  const { brand, socials, menus, copyright } = content; // Added contactDetails
 
   return (
     <MKBox component="footer">
@@ -59,6 +44,7 @@ function DefaultFooter({ content }) {
               ))}
             </MKBox>
           </Grid>
+
           {menus.map(({ name: title, items }) => (
             <Grid key={title} item xs={6} md={2} sx={{ mb: 3 }}>
               <MKTypography
@@ -101,6 +87,39 @@ function DefaultFooter({ content }) {
               </MKBox>
             </Grid>
           ))}
+
+          {/* New Grid item for Contact Details */}
+          <Grid item xs={12} md={3} sx={{ mb: 3 }}>
+            <MKTypography
+              display="block"
+              variant="button"
+              fontWeight="bold"
+              textTransform="capitalize"
+              mb={1}
+            >
+              Contact Us
+            </MKTypography>
+            <MKBox>
+              <MKTypography
+                variant="button"
+                fontWeight="regular"
+                textTransform="capitalize"
+                component="div"
+              >
+                <strong>Email:</strong> rupkhamkar333@gmail.com
+              </MKTypography>
+
+              <MKTypography
+                variant="button"
+                fontWeight="regular"
+                textTransform="capitalize"
+                component="div"
+              >
+                <strong>Phone:</strong> 9372079651
+              </MKTypography>
+            </MKBox>
+          </Grid>
+
           <Grid item xs={12} sx={{ textAlign: "center", my: 3 }}>
             {copyright}
           </Grid>
@@ -112,7 +131,16 @@ function DefaultFooter({ content }) {
 
 // Typechecking props for the DefaultFooter
 DefaultFooter.propTypes = {
-  content: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.object, PropTypes.array])).isRequired,
+  content: PropTypes.shape({
+    brand: PropTypes.object.isRequired,
+    socials: PropTypes.array.isRequired,
+    menus: PropTypes.array.isRequired,
+    copyright: PropTypes.node.isRequired,
+    contactDetails: PropTypes.shape({
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    }).isRequired, // Added contactDetails prop validation
+  }).isRequired,
 };
 
 export default DefaultFooter;

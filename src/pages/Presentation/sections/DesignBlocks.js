@@ -1,65 +1,30 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// react-router-dom components
-import { Link } from "react-router-dom";
-
-// @mui material components
+// Import necessary components
+import React from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-
-// Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKBadge from "components/MKBadge";
 import MKTypography from "components/MKTypography";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
+// Image imports
 
-// Presentation page components
-import ExampleCard from "pages/Presentation/components/ExampleCard";
-
-// Data
-import data from "pages/Presentation/sections/data/designBlocksData";
-
+import Connecticut from "../../../assets/images/university/Connecticut.jpg";
+import Massachusetts from "../../../assets/images/university/Massachusetts.jpg";
+import comparisonData from "./data/comparisonData";
+// import Hampshire from "../../../assets/images/university/New Hampshire.jpg";
+// import Jersey from "../../../assets/images/university/New Jersey.jpg";
 function DesignBlocks() {
-  const renderData = data.map(({ title, description, items }) => (
-    <Grid container spacing={3} sx={{ mb: 10 }} key={title}>
-      <Grid item xs={12} lg={3}>
-        <MKBox position="sticky" top="100px" pb={{ xs: 2, lg: 6 }}>
-          <MKTypography variant="h3" fontWeight="bold" mb={1}>
-            {title}
-          </MKTypography>
-          <MKTypography variant="body2" fontWeight="regular" color="secondary" mb={1} pr={2}>
-            {description}
-          </MKTypography>
-        </MKBox>
-      </Grid>
-      <Grid item xs={12} lg={9}>
-        <Grid container spacing={3}>
-          {items.map(({ image, name, count, route, pro }) => (
-            <Grid item xs={12} md={4} sx={{ mb: 2 }} key={name}>
-              <Link to={pro ? "/" : route}>
-                <ExampleCard image={image} name={name} count={count} pro={pro} />
-              </Link>
-            </Grid>
-          ))}
-        </Grid>
-      </Grid>
-    </Grid>
-  ));
-
   return (
-    <MKBox component="section" my={6} py={6}>
+    <MKBox component="section" my={2} py={2}>
+      {/* About Us Section */}
       <Container>
         <Grid
           container
@@ -87,7 +52,128 @@ function DesignBlocks() {
           </MKTypography>
         </Grid>
       </Container>
-      <Container sx={{ mt: 6 }}>{renderData}</Container>
+
+      {/* Stay Confident Section */}
+      <Container sx={{ mt: 6 }}>
+        <Grid container spacing={4} alignItems="center">
+          {/* Text on Left, Image on Right */}
+          <Grid item xs={12} md={6}>
+            <MKTypography variant="h3" fontWeight="bold" mb={2}>
+              STAY Confident
+            </MKTypography>
+            <MKTypography variant="body1" color="text">
+              You can rest easy knowing you have safe and clean accommodations at Extended Stay
+              America. Our hotel staff is committed to your safety, health, and comfort.
+            </MKTypography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <MKBox component="img" src={Connecticut} alt="Stay Confident" width="100%" />
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* Comfortable Living Section */}
+      <Container sx={{ mt: 6 }}>
+        <Grid container spacing={4} alignItems="center">
+          {/* Image on Left, Text on Right */}
+          <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }}>
+            <MKBox component="img" src={Massachusetts} alt="Comfortable Living" width="100%" />
+          </Grid>
+          <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
+            <MKTypography variant="h3" fontWeight="bold" mb={2}>
+              Comfortable Living
+            </MKTypography>
+            <MKTypography variant="body1" color="text">
+              All our hotels feature fully furnished, spacious suites with fully equipped kitchens,
+              free Wi-Fi, free breakfast*, and premium cable. We also offer on-site guest laundry
+              and pet-friendly suites.
+            </MKTypography>
+          </Grid>
+        </Grid>
+      </Container>
+      <Container sx={{ mt: 6 }}>
+        <Grid container spacing={4} alignItems="center">
+          {/* Text on Left, Image on Right */}
+          <Grid item xs={12} md={6}>
+            <MKTypography variant="h3" fontWeight="bold" mb={2}>
+              Stress Free
+            </MKTypography>
+            <MKTypography variant="body1" color="text">
+              Let us take some stress away by staying with us this semester! With no binding
+              long-term lease agreements, no first and last month&apos;s rent and no cleaning fees,
+              we make it easy for you to move in quickly.
+            </MKTypography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <MKBox component="img" src={Connecticut} alt="Stay Confident" width="100%" />
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* Comfortable Living Section */}
+      <Container sx={{ mt: 6 }}>
+        <Grid container spacing={4} alignItems="center">
+          {/* Image on Left, Text on Right */}
+          <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }}>
+            <MKBox component="img" src={Massachusetts} alt="Comfortable Living" width="100%" />
+          </Grid>
+          <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
+            <MKTypography variant="h3" fontWeight="bold" mb={2}>
+              Less Bills
+            </MKTypography>
+            <MKTypography variant="body1" color="text">
+              Staying at an extended stay hotel helps you save on normal, everyday costs of living
+              like electric, gas, internet, cable, parking and water. And the longer you stay with
+              us, the more you save.
+            </MKTypography>
+          </Grid>
+        </Grid>
+      </Container>
+      <Container sx={{ mt: 8 }}>
+        <MKTypography
+          variant="h4"
+          fontWeight="bold"
+          mb={2}
+          display="flex"
+          alignItems="center"
+          justifyContent="center" // Added this line for horizontal centering
+          textAlign="center" // Optional: Ensures text is centered within its container
+        >
+          See how we compare to apartment living
+        </MKTypography>
+        <TableContainer component={Paper} sx={{ maxWidth: 800, mx: "auto", my: 4 }} my={6} py={6}>
+          <Table sx={{ width: "100%" }}>
+            <TableHead sx={{ display: "contents" }}>
+              <TableRow>
+                <TableCell align="center" sx={{ fontWeight: "bold", width: "33%" }}>
+                  Feature
+                </TableCell>
+                <TableCell align="center" sx={{ fontWeight: "bold", width: "33%" }}>
+                  Videsi Stays
+                </TableCell>
+                <TableCell align="center" sx={{ fontWeight: "bold", width: "33%" }}>
+                  Rental Property
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {comparisonData.map((row, index) => (
+                <TableRow key={index}>
+                  <TableCell align="center" sx={{ width: "33%" }}>
+                    {row.feature}
+                  </TableCell>
+                  <TableCell align="center" sx={{ width: "33%" }}>
+                    {row.videsiStays}
+                  </TableCell>
+                  <TableCell align="center" sx={{ width: "33%" }}>
+                    {row.rentalProperty}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Container>
     </MKBox>
   );
 }

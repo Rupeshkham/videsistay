@@ -21,7 +21,7 @@ import Card from "@mui/material/Card";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
-import MKSocialButton from "components/MKSocialButton";
+// import MKSocialButton from "components/MKSocialButton";
 
 // Material Kit 2 React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
@@ -30,7 +30,7 @@ import DefaultFooter from "examples/Footers/DefaultFooter";
 
 // Presentation page sections
 // import Counters from "pages/Presentation/sections/Counters";
-import Information from "pages/Presentation/sections/Information";
+// import Information from "pages/Presentation/sections/Information";
 import DesignBlocks from "pages/Presentation/sections/DesignBlocks";
 // import Pages from "pages/Presentation/sections/Pages";
 // import Testimonials from "pages/Presentation/sections/Testimonials";
@@ -110,8 +110,8 @@ function Presentation() {
         }}
       >
         {/* <Counters /> */}
-        <Information />
         <DesignBlocks />
+        {/* <Information /> */}
         {/* <Pages /> */}
         {/* <Container sx={{ mt: 6 }}>
           <BuiltByDevelopers />
@@ -162,7 +162,7 @@ function Presentation() {
         </Container>
         <Testimonials />
         <Download /> */}
-        <MKBox pt={0} pb={6}>
+        {/* <MKBox pt={0} pb={6}>
           <Container>
             <Grid container spacing={3}>
               <Grid item xs={12} lg={5} ml="auto" sx={{ textAlign: { xs: "center", lg: "left" } }}>
@@ -213,7 +213,7 @@ function Presentation() {
               </Grid>
             </Grid>
           </Container>
-        </MKBox>
+        </MKBox> */}
       </Card>
       <MKBox pt={6} px={1} mt={6}>
         <DefaultFooter content={footerRoutes} />
